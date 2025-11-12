@@ -220,18 +220,18 @@ function wireNav() {
   if (heroCta) heroCta.addEventListener("click", () => scrollToHash("#products"));
 }
 
-/* PRELOADER — fundo garantido #f8f8f8 */
+/* PRELOADER - usando rgb(240 240 240) */
 function setupPreloader() {
   const preloader = document.getElementById("preloader");
   if (!preloader) return;
 
-  // força o body a ficar igual ao preload
-  document.body.style.background = "#f8f8f8";
+  // Mantém fundo do body igual ao loader
+  document.body.style.background = "rgb(240 240 240)";
 
   Object.assign(preloader.style, {
     position: "fixed",
     inset: "0",
-    background: "#f8f8f8",
+    background: "rgb(240 240 240)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -251,9 +251,9 @@ function setupPreloader() {
     preloader.style.opacity = "0";
     setTimeout(() => {
       preloader.remove();
-      document.body.style.background = ""; // libera depois
+      document.body.style.background = ""; // volta normal
     }, 400);
-  }, 50000);
+  }, 5000);
 }
 
 function init() {
