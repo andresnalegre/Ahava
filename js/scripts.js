@@ -238,7 +238,7 @@ function setupPreloader() {
   });
 
   const img = document.createElement("img");
-  img.src = "/assets/preload.gif";
+  img.src = "/assets/images/preload.gif";
   img.alt = "Loading...";
   img.style.maxWidth = "160px";
   img.style.maxHeight = "160px";
