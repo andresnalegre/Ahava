@@ -220,10 +220,13 @@ function wireNav() {
   if (heroCta) heroCta.addEventListener("click", () => scrollToHash("#products"));
 }
 
-/* PRELOADER – usa o #preloader já presente no HTML */
+/* PRELOADER — fundo garantido #f8f8f8 */
 function setupPreloader() {
   const preloader = document.getElementById("preloader");
   if (!preloader) return;
+
+  // força o body a ficar igual ao preload
+  document.body.style.background = "#f8f8f8";
 
   Object.assign(preloader.style, {
     position: "fixed",
@@ -247,9 +250,8 @@ function setupPreloader() {
   setTimeout(() => {
     preloader.style.opacity = "0";
     setTimeout(() => {
-      if (preloader.parentNode) {
-        preloader.parentNode.removeChild(preloader);
-      }
+      preloader.remove();
+      document.body.style.background = ""; // libera depois
     }, 400);
   }, 5000);
 }
