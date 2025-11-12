@@ -253,7 +253,7 @@ function setupPreloader() {
       preloader.remove();
       document.body.style.background = ""; // libera depois
     }, 400);
-  }, 5000);
+  }, 50000);
 }
 
 function init() {
