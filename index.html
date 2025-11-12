@@ -1,35 +1,576 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ahava - Criando experiências digitais extraordinárias" />
-    <meta name="keywords" content="desenvolvimento web, design digital, experiências digitais, ahava" />
-    <meta name="author" content="Ahava" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="/" />
-    <meta property="og:title" content="Ahava - Criando o Futuro Digital" />
-    <meta property="og:description" content="Criamos experiências digitais extraordinárias que conectam pessoas, inspiram comunidades e geram mudanças significativas no mundo." />
-    <meta property="og:image" content="/og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="/" />
-    <meta property="twitter:title" content="Ahava - Criando o Futuro Digital" />
-    <meta property="twitter:description" content="Criamos experiências digitais extraordinárias que conectam pessoas, inspiram comunidades e geram mudanças significativas no mundo." />
-    <meta property="twitter:image" content="/og-image.jpg" />
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#2563eb" />
-    <meta name="msapplication-TileColor" content="#2563eb" />
-
-    <title>Ahava - Criando o Futuro Digital</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ahava</title>
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header class="header">
+      <nav class="header-nav">
+        <div class="header-container">
+          <div class="header-logo"><h1>Ahava</h1></div>
+
+          <div class="desktop-nav">
+            <div class="desktop-nav-list">
+              <a href="#home" class="nav-link">Home</a>
+              <a href="#about" class="nav-link">About</a>
+              <a href="#products" class="nav-link">Products</a>
+              <a href="#contact" class="nav-link">Contact</a>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <div class="cart-container">
+              <button class="cart-button" aria-label="Shopping cart">
+                <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                </svg>
+                <span class="cart-count">0</span>
+              </button>
+
+              <div class="cart-dropdown" hidden>
+                <div class="cart-dropdown-header">
+                  <h3>Shopping Cart</h3>
+                  <button class="cart-close-btn" aria-label="Close cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="cart-dropdown-content">
+                  <div class="cart-empty"><p>Your cart is empty</p></div>
+                  <div class="cart-items" hidden></div>
+
+                  <div class="cart-dropdown-footer">
+                    <div class="cart-total"><strong>Total: $0.00</strong></div>
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mobile-menu-button">
+              <button class="mobile-menu-btn" aria-label="Open menu">
+                <svg class="mobile-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-nav" hidden>
+          <div class="mobile-nav-list">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#products" class="mobile-nav-link">Products</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+          </div>
+        </div>
+
+        <div class="cart-overlay" hidden></div>
+      </nav>
+    </header>
+
+    <main id="app" data-route="home">
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <h1 class="hero-title">Signature Artisan Candles</h1>
+          <p class="hero-subtitle">Your exclusive moment, born with every flame.</p>
+          <button class="hero-cta">More</button>
+        </div>
+      </section>
+
+      <section class="collection-section">
+        <div class="collection-container">
+          <div class="collection-header">
+            <h2 class="collection-title">Our Collection</h2>
+            <p class="collection-description">Discover our collection crafted exclusively for you. Each candle is unique and made with premium natural ingredients.</p>
+          </div>
+
+          <div class="collection-row">
+            <div class="collection-image">
+              <img src="./assets/images/candle_collection.png" alt="Premium Candle Collection" class="collection-img">
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-subtitle">Premium Collection</h3>
+              <p class="collection-text">Our signature range features candles crafted from 100% natural soy wax, infused with pure essential oils, and finished with cotton wicks to ensure a clean and long lasting burn.</p>
+              <ul class="collection-features">
+                <li class="feature-item"><span class="feature-dot"></span>Honey Lavender Bliss</li>
+                <li class="feature-item"><span class="feature-dot"></span>Golden Vanilla Dream</li>
+                <li class="feature-item"><span class="feature-dot"></span>Eucalyptus Mint Fresh</li>
+                <li class="feature-item"><span class="feature-dot"></span>Citrus Honey Burst</li>
+                <li class="feature-item"><span class="feature-dot"></span>Amber Rose Garden</li>
+                <li class="feature-item"><span class="feature-dot"></span>Ocean Breeze Serenity</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="collection-row reverse">
+            <div class="collection-content">
+              <h3 class="collection-subtitle">Crafted with Care</h3>
+              <p class="collection-text">Each candle is handmade, ensuring quality in every detail. We are dedicated to creating candles that delight with their aroma and enhance the decor of your home.</p>
+              <div class="craft-badges">
+                <span class="craft-badge">Natural Soy Wax</span>
+                <span class="craft-badge">Cotton Wicks</span>
+                <span class="craft-badge">Essential Oils</span>
+                <span class="craft-badge">Slow Burn</span>
+              </div>
+            </div>
+            <div class="collection-image">
+              <img src="./assets/images/single_candle.png" alt="Artisan Candle" class="collection-img">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-section" id="products">
+        <div class="products-container">
+          <div class="products-header">
+            <h2 class="products-title">Our Products</h2>
+            <p class="products-description">Crafted to evoke new emotion and create the perfect ambiance for any moment.</p>
+          </div>
+
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-image-container">
+                <img src="./assets/images/candle1.png" alt="Honey Lavender Bliss candle" class="product-image">
+                <div class="product-overlay"><span class="product-scent">Floral &amp; Sweet</span></div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-name">Honey Lavender Bliss</h3>
+                <p class="product-description">A soothing blend of organic honey and French lavender, perfect for relaxation and meditation.</p>
+                <ul class="product-features">
+                  <li class="product-feature"><span class="feature-dot"></span>Natural Soy Wax</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Cotton Wick</li>
+                  <li class="product-feature"><span class="feature-dot"></span>60+ Hour Burn</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Hand-Poured</li>
+                </ul>
+                <div class="product-footer">
+                  <div class="product-pricing">
+                    <span class="product-price">$28.99</span>
+                    <span class="product-original-price">$34.99</span>
+                  </div>
+                  <div class="product-actions">
+                    <div class="quantity-selector">
+                      <label class="quantity-label">Qty:</label>
+                      <div class="quantity-input-group">
+                        <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="99">
+                        <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                      <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image-container">
+                <img src="./assets/images/candle2.png" alt="Golden Vanilla Dream candle" class="product-image">
+                <div class="product-overlay"><span class="product-scent">Warm &amp; Creamy</span></div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-name">Golden Vanilla Dream</h3>
+                <p class="product-description">Rich vanilla bean essence with golden honey notes creates a warm, comforting atmosphere.</p>
+                <ul class="product-features">
+                  <li class="product-feature"><span class="feature-dot"></span>Premium Essential Oils</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Lead-Free Wick</li>
+                  <li class="product-feature"><span class="feature-dot"></span>70+ Hour Burn</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Eco-Friendly</li>
+                </ul>
+                <div class="product-footer">
+                  <div class="product-pricing">
+                    <span class="product-price">$32.99</span>
+                    <span class="product-original-price">$39.99</span>
+                  </div>
+                  <div class="product-actions">
+                    <div class="quantity-selector">
+                      <label class="quantity-label">Qty:</label>
+                      <div class="quantity-input-group">
+                        <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="99">
+                        <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                      <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image-container">
+                <img src="./assets/images/candle3.png" alt="Eucalyptus Mint Fresh candle" class="product-image">
+                <div class="product-overlay"><span class="product-scent">Fresh &amp; Crisp</span></div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-name">Eucalyptus Mint Fresh</h3>
+                <p class="product-description">Invigorating eucalyptus and refreshing mint create an energizing and cleansing ambiance.</p>
+                <ul class="product-features">
+                  <li class="product-feature"><span class="feature-dot"></span>Therapeutic Grade</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Natural Botanicals</li>
+                  <li class="product-feature"><span class="feature-dot"></span>55+ Hour Burn</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Aromatherapy</li>
+                </ul>
+                <div class="product-footer">
+                  <div class="product-pricing">
+                    <span class="product-price">$26.99</span>
+                    <span class="product-original-price">$31.99</span>
+                  </div>
+                  <div class="product-actions">
+                    <div class="quantity-selector">
+                      <label class="quantity-label">Qty:</label>
+                      <div class="quantity-input-group">
+                        <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="99">
+                        <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                      <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image-container">
+                <img src="./assets/images/candle4.png" alt="Citrus Honey Burst candle" class="product-image">
+                <div class="product-overlay"><span class="product-scent">Bright &amp; Citrusy</span></div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-name">Citrus Honey Burst</h3>
+                <p class="product-description">Zesty citrus fruits harmonize with golden honey for an uplifting and energetic fragrance.</p>
+                <ul class="product-features">
+                  <li class="product-feature"><span class="feature-dot"></span>Organic Ingredients</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Slow Burn Formula</li>
+                  <li class="product-feature"><span class="feature-dot"></span>65+ Hour Burn</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Mood Enhancing</li>
+                </ul>
+                <div class="product-footer">
+                  <div class="product-pricing">
+                    <span class="product-price">$29.99</span>
+                    <span class="product-original-price">$35.99</span>
+                  </div>
+                  <div class="product-actions">
+                    <div class="quantity-selector">
+                      <label class="quantity-label">Qty:</label>
+                      <div class="quantity-input-group">
+                        <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="99">
+                        <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                      <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image-container">
+                <img src="./assets/images/candle5.png" alt="Amber Rose Garden candle" class="product-image">
+                <div class="product-overlay"><span class="product-scent">Romantic &amp; Elegant</span></div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-name">Amber Rose Garden</h3>
+                <p class="product-description">Luxurious amber and delicate rose petals create an elegant and romantic atmosphere.</p>
+                <ul class="product-features">
+                  <li class="product-feature"><span class="feature-dot"></span>Premium Rose Oil</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Natural Amber</li>
+                  <li class="product-feature"><span class="feature-dot"></span>75+ Hour Burn</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Limited Edition</li>
+                </ul>
+                <div class="product-footer">
+                  <div class="product-pricing">
+                    <span class="product-price">$34.99</span>
+                    <span class="product-original-price">$42.99</span>
+                  </div>
+                  <div class="product-actions">
+                    <div class="quantity-selector">
+                      <label class="quantity-label">Qty:</label>
+                      <div class="quantity-input-group">
+                        <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="99">
+                        <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                      <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image-container">
+                <img src="./assets/images/candle6.png" alt="Ocean Breeze Serenity candle" class="product-image">
+                <div class="product-overlay"><span class="product-scent">Fresh &amp; Aquatic</span></div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-name">Ocean Breeze Serenity</h3>
+                <p class="product-description">Fresh ocean air and coastal botanicals bring the tranquility of the seaside to your home.</p>
+                <ul class="product-features">
+                  <li class="product-feature"><span class="feature-dot"></span>Sea Salt Crystals</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Marine Botanicals</li>
+                  <li class="product-feature"><span class="feature-dot"></span>68+ Hour Burn</li>
+                  <li class="product-feature"><span class="feature-dot"></span>Coastal Inspired</li>
+                </ul>
+                <div class="product-footer">
+                  <div class="product-pricing">
+                    <span class="product-price">$30.99</span>
+                    <span class="product-original-price">$37.99</span>
+                  </div>
+                  <div class="product-actions">
+                    <div class="quantity-selector">
+                      <label class="quantity-label">Qty:</label>
+                      <div class="quantity-input-group">
+                        <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="99">
+                        <button class="quantity-btn" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                      <svg class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 1.5M7 13l-1.5-1.5M16 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"/>
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="products-cta">
+            <p class="cta-text">Looking for something personalized?</p>
+            <button class="cta-button">
+              Create Custom Candle
+              <svg class="cta-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-container">
+          <div class="about-header">
+            <h2 class="about-title">About Us</h2>
+            <p class="about-subtitle">Inspired by the natural elegance and the transformative power of scent</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-content">
+              <div class="story-section">
+                <h3 class="story-title">Essence of Ahava</h3>
+                <p class="story-text">From Zurich to the world, Ahava was born from the desire to create unique candles that offer unforgettable experiences beyond fragrance.</p>
+              </div>
+              <div class="story-section">
+                <h3 class="story-title">The Production</h3>
+                <p class="story-text">Our candles are thoughtfully assembled by hand, using natural wax, premium essential oils, and cotton wicks. Each piece is unique, crafted not only to release a beautiful scent, but to offer a complete sensory experience.</p>
+              </div>
+              <div class="story-section">
+                <h3 class="story-title">Our Quality</h3>
+                <p class="story-text">We don't just deliver a product, we deliver an experience. From the excellence in every detail during the candle's creation, from the selection of raw materials to the final presentation, everything is thoughtfully crafted. For us, true luxury lies in mindful simplicity, ecological awareness, and the intention behind each creation.</p>
+              </div>
+            </div>
+
+            <div class="about-sidebar">
+              <div class="values-section">
+                <div class="values-header">
+                  <div class="bee-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L13.5 8.5L20 7L16.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L7.5 12L4 7L10.5 8.5L12 2Z" fill="#D97706"/>
+                    </svg>
+                  </div>
+                  <h4 class="values-title">Our Values</h4>
+                </div>
+                <ul class="values-list">
+                  <li class="value-item"><span class="value-dot"></span>Deliver high quality craftsmanship in every candle</li>
+                  <li class="value-item"><span class="value-dot"></span>100% natural and sustainable ingredients</li>
+                  <li class="value-item"><span class="value-dot"></span>Ensure quality at every stage of the process</li>
+                  <li class="value-item"><span class="value-dot"></span>Create sensory and memorable experiences</li>
+                </ul>
+              </div>
+
+              <div class="stats-section">
+                <div class="stat-item">
+                  <div class="stat-number">600+</div>
+                  <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">6</div>
+                  <div class="stat-label">Exclusive Scents</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-container">
+          <div class="contact-header">
+            <h2 class="contact-title">Contact Us</h2>
+            <p class="contact-description">Support, custom candles, or questions? Get in touch.</p>
+          </div>
+
+          <div class="contact-methods">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.19 12.85C3.49998 10.2412 2.44824 7.27099 2.12 4.18C2.09501 3.90347 2.12788 3.62476 2.21649 3.36162C2.3051 3.09849 2.44748 2.85669 2.63469 2.65162C2.8219 2.44655 3.04974 2.28271 3.30372 2.17052C3.55771 2.05833 3.83227 2.00026 4.11 2H7.11C7.59531 1.99522 8.06627 2.16708 8.43845 2.48353C8.81063 2.79999 9.06254 3.23945 9.14 3.72C9.28401 4.68007 9.53824 5.62273 9.89 6.53C10.0197 6.88792 10.0394 7.27691 9.94707 7.64873C9.85474 8.02055 9.64896 8.35362 9.36 8.6L8.09 9.87C9.51355 12.4135 11.5865 14.4865 14.13 15.91L15.4 14.64C15.6464 14.351 15.9795 14.1453 16.3513 14.0529C16.7231 13.9606 17.1121 13.9803 17.47 14.11C18.3773 14.4618 19.3199 14.716 20.28 14.86C20.7658 14.9384 21.2094 15.1932 21.5265 15.5694C21.8437 15.9456 22.0122 16.4201 22 16.92Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="contact-method-title">Call Us</h3>
+              <p class="contact-subtitle">Mon - Fri: 9:00 AM - 6:00 PM</p>
+              <a href="tel:+15551234567" class="contact-link">(555) 123-4567</a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="contact-method-title">Email Us</h3>
+              <p class="contact-subtitle">We'll respond within 24 hours</p>
+              <a href="mailto:contact@ahavahandmade.com" class="contact-link">contact@ahavahandmade.com</a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.3639 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="contact-method-title">Visit Us</h3>
+              <p class="contact-subtitle">123 Artisan Street</p>
+              <a href="https://maps.google.com/?q=123+Artisan+Street+Craftville+CA+90210"
+                 class="contact-link" target="_blank" rel="noopener noreferrer">Craftville, CA 90210</a>
+            </div>
+          </div>
+
+          <div class="social-section">
+            <div class="social-icons">
+              <a href="https://facebook.com/ahava" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+              <a href="https://instagram.com/ahava" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
+              <a href="https://twitter.com/ahava" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">tw</a>
+            </div>
+            <p class="social-text">Stay connected on social media for the latest news.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-top container">
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="icon">
+              <!-- phone -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.9v3c0 .7-.3 1.4-.8 1.9-.5.5-1.2.8-1.9.8A19 19 0 0 1 2.5 5.7c0-.7.3-1.4.8-1.9.5-.5 1.2-.8 1.9-.8h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.8L9.1 10a16 16 0 0 0 4.9 4.9l1.7-1.9a2 2 0 0 1 1.8-.6l2.8.5a2 2 0 0 1 1.7 2z"/>
+              </svg>
+            </span>
+            <span>(555) 123-4567</span>
+          </li>
+          <li class="contact-item">
+            <span class="icon">
+              <!-- mail -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+                <path d="M3 7l9 6 9-6"></path>
+              </svg>
+            </span>
+            <span>contact@ahavahandmade.com</span>
+          </li>
+          <li class="contact-item">
+            <span class="icon">
+              <!-- whatsapp -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                <path d="M20 3.9A10 10 0 1 0 3.3 20.7L2 22l1.6-.4A10 10 0 1 0 20 3.9zm-8 16.2a8.2 8.2 0 0 1-4-1.1l-.3-.2-2.4.6.6-2.3-.2-.3a8.3 8.3 0 1 1 6.3 3.3z"/>
+                <path d="M16.6 13.7c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.3-.6.7-.7.8-.1.1-.3.1-.5 0a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.2-.2.2-.3.3-.5 0-.1 0-.3 0-.4l-.7-1.9c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.2-.6.4-.2.3-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.6 2.5 3.8 3.4.5.2.9.3 1.2.4.5.1.9.1 1.3.1.4 0 1.3-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.1-.3-.2z"/>
+              </svg>
+            </span>
+            <span>WhatsApp</span>
+          </li>
+        </ul>
+
+        <div class="social-wrap">
+          <div class="social-icons">
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <!-- fb -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.2c0-.9.3-1.5 1.7-1.5H17V5c-.3 0-1.5-.1-2.8-.1C11.2 4.9 10 6 10 8.6V11H7v3h3v8h3.5z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <!-- ig -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.4A2.9 2.9 0 1 1 14.9 12 2.9 2.9 0 0 1 12 14.9zM18 6.6a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Twitter">
+              <!-- tw -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8.29 20.25c7.55 0 11.68-6.25 11.68-11.67v-.53A8.36 8.36 0 0 0 22 5.92a8.2 8.2 0 0 1-2.36.65 4.12 4.12 0 0 0 1.8-2.27 8.23 8.23 0 0 1-2.6 1A4.11 4.11 0 0 0 8.85 9a11.66 11.66 0 0 1-8.46-4.29 4.11 4.11 0 0 0 1.27 5.48 4.1 4.1 0 0 1-1.86-.51v.05a4.11 4.11 0 0 0 3.29 4 4.1 4.1 0 0 1-1.85.07 4.11 4.11 0 0 0 3.83 2.85A8.24 8.24 0 0 1 2 18.41a11.62 11.62 0 0 0 6.29 1.84"/></svg>
+            </a>
+          </div>
+          <span class="social-caption">Follow us for updates</span>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom container">
+        <p>© <span id="year"></span> Ahava. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+
+    <script type="module" src="/js/scripts.js"></script>
   </body>
 </html>
