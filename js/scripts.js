@@ -220,12 +220,32 @@ function wireNav() {
   if (heroCta) heroCta.addEventListener("click", () => scrollToHash("#products"));
 }
 
-/* PRELOADER - usando rgb(240 240 240) */
+/* PRELOADER - só na primeira vez da aba */
+const PRELOADER_KEY = "ahavaPreloaderShown";
+
 function setupPreloader() {
   const preloader = document.getElementById("preloader");
   if (!preloader) return;
 
-  // Mantém fundo do body igual ao loader
+  let skipPreloader = false;
+
+  try {
+    if (sessionStorage.getItem(PRELOADER_KEY) === "1") {
+      skipPreloader = true;
+    } else {
+      sessionStorage.setItem(PRELOADER_KEY, "1");
+    }
+  } catch (e) {
+    // se der erro no sessionStorage, só segue fluxo normal
+  }
+
+  // Se já foi mostrado uma vez nesta aba, remove o elemento e não mostra nada
+  if (skipPreloader) {
+    preloader.remove();
+    return;
+  }
+
+  // Primeira vez: mostra com fundo rgb(240 240 240)
   document.body.style.background = "rgb(240 240 240)";
 
   Object.assign(preloader.style, {
@@ -251,7 +271,7 @@ function setupPreloader() {
     preloader.style.opacity = "0";
     setTimeout(() => {
       preloader.remove();
-      document.body.style.background = ""; // volta normal
+      document.body.style.background = ""; // volta ao normal depois
     }, 400);
   }, 5000);
 }
