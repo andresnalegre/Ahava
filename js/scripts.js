@@ -220,7 +220,48 @@ function wireNav() {
   if (heroCta) heroCta.addEventListener("click", () => scrollToHash("#products"));
 }
 
+/* PRELOADER */
+function setupPreloader() {
+  const preloader = document.createElement("div");
+  preloader.id = "preloader";
+
+  Object.assign(preloader.style, {
+    position: "fixed",
+    inset: "0",
+    background: "#f8f8f8",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: "9999",
+    opacity: "1",
+    transition: "opacity 0.4s ease"
+  });
+
+  const img = document.createElement("img");
+  img.src = "/assets/preload.gif"; // ajuste se o caminho for diferente
+  img.alt = "Loading...";
+  img.style.maxWidth = "160px";
+  img.style.maxHeight = "160px";
+
+  preloader.appendChild(img);
+  document.body.appendChild(preloader);
+
+  function hidePreloader() {
+    if (!preloader) return;
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      if (preloader.parentNode) {
+        preloader.parentNode.removeChild(preloader);
+      }
+    }, 400);
+  }
+
+  window.addEventListener("load", hidePreloader);
+  setTimeout(hidePreloader, 6000);
+}
+
 function init() {
+  setupPreloader();
   updateYear();
   wireProductCards();
   wireCartControls();

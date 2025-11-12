@@ -580,10 +580,12 @@ body {
   text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.8),
     0 4px 8px rgba(0, 0, 0, 0.6);
+
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: center;  /* centraliza horizontal */
+  align-items: center;      /* centraliza vertical */
+  white-space: nowrap;      /* impede quebrar linha */
+  text-align: center;
 }
 
 .candle-icon {
