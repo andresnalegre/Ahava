@@ -106,7 +106,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #7c3aed;
+  color: #d97706; /* dourado */
   transform: translateY(-1px);
 }
 
@@ -117,7 +117,7 @@ body {
   left: 50%;
   width: 0;
   height: 2px;
-  background: #7c3aed;
+  background: #d97706; /* dourado */
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -151,9 +151,9 @@ body {
 
 .cart-button:hover {
   background: #f3f4f6;
-  border-color: #7c3aed;
+  border-color: #d97706; /* dourado */
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25); /* glow quente */
 }
 
 .cart-icon {
@@ -163,7 +163,7 @@ body {
 }
 
 .cart-button:hover .cart-icon {
-  color: #7c3aed;
+  color: #d97706;
 }
 
 .cart-dropdown {
@@ -276,7 +276,7 @@ body {
 
 .cart-item-price {
   font-size: 0.75rem;
-  color: #d97706;
+  color: #d97706; /* já dourado, mantido */
   font-weight: 600;
   margin: 0 0 0.5rem 0;
 }
@@ -304,8 +304,8 @@ body {
 }
 
 .quantity-btn-cart:hover:not(:disabled) {
-  background: #7c3aed;
-  border-color: #7c3aed;
+  background: #f97316;        /* fogo */
+  border-color: #ea580c;      /* fogo mais escuro */
   color: #ffffff;
 }
 
@@ -371,7 +371,7 @@ body {
 
 .checkout-btn {
   width: 100%;
-  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  background: linear-gradient(135deg, #f97316 0%, #b45309 100%); /* laranja/fogo */
   color: #ffffff;
   border: none;
   border-radius: 0.5rem;
@@ -383,9 +383,9 @@ body {
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
+  background: linear-gradient(135deg, #fb923c 0%, #9a3412 100%); /* mais quente no hover */
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.45);
 }
 
 .cart-overlay {
@@ -427,7 +427,7 @@ body {
   position: absolute;
   top: -0.25rem;
   right: -0.25rem;
-  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  background: linear-gradient(135deg, #facc15 0%, #f97316 100%); /* dourado + fogo */
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 600;
@@ -439,7 +439,7 @@ body {
   justify-content: center;
   line-height: 1;
   padding: 0 0.25rem;
-  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.5);
   opacity: 0.5;
   transform: scale(0.8);
   transition: all 0.3s ease;
@@ -489,7 +489,7 @@ body {
 }
 
 .mobile-menu-btn:hover {
-  color: #7c3aed;
+  color: #d97706;
   background: #f3f4f6;
 }
 
@@ -529,7 +529,7 @@ body {
 }
 
 .mobile-nav-link:hover {
-  color: #7c3aed;
+  color: #d97706;
   background: #f9fafb;
   transform: translateX(4px);
 }
