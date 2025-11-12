@@ -238,7 +238,7 @@ function setupPreloader() {
   });
 
   const img = document.createElement("img");
-  img.src = "/assets/preload.gif"; // ajuste se o caminho for diferente
+  img.src = "/assets/preload.gif";
   img.alt = "Loading...";
   img.style.maxWidth = "160px";
   img.style.maxHeight = "160px";
@@ -246,19 +246,13 @@ function setupPreloader() {
   preloader.appendChild(img);
   document.body.appendChild(preloader);
 
-  function hidePreloader() {
-    if (!preloader) return;
+  // Remove após exatamente 5 segundos
+  setTimeout(() => {
     preloader.style.opacity = "0";
-    setTimeout(() => {
-      if (preloader.parentNode) {
-        preloader.parentNode.removeChild(preloader);
-      }
-    }, 400);
-  }
-
-  window.addEventListener("load", hidePreloader);
-  setTimeout(hidePreloader, 6000);
+    setTimeout(() => preloader.remove(), 400);
+  }, 5000);
 }
+
 
 function init() {
   setupPreloader();
