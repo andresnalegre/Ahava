@@ -220,109 +220,42 @@ function wireNav() {
   if (heroCta) heroCta.addEventListener("click", () => scrollToHash("#products"));
 }
 
-/* PRELOADER - estilo módulo */
+/* PRELOADER – usa o #preloader já presente no HTML */
+function setupPreloader() {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
 
-const PreloadModule = {
-  preloader: null,
-  isHidden: false,
-  timeouts: [],
-  DURATION: 5000,
+  Object.assign(preloader.style, {
+    position: "fixed",
+    inset: "0",
+    background: "#f8f8f8",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: "9999",
+    opacity: "1",
+    transition: "opacity 0.4s ease"
+  });
 
-  init() {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => this.create(), { once: true });
-    } else {
-      this.create();
-    }
-  },
-
-  create() {
-    if (this.preloader) return;
-
-    const preloader = document.createElement("div");
-    preloader.id = "preloader";
-
-    Object.assign(preloader.style, {
-      position: "fixed",
-      inset: "0",
-      background: "#f8f8f8",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      zIndex: "9999",
-      opacity: "1",
-      transition: "opacity 0.4s ease"
-    });
-
-    const box = document.createElement("div");
-    Object.assign(box.style, {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: "1rem"
-    });
-
-    const img = document.createElement("img");
-    img.src = "./assets/images/preload.gif";
-    img.alt = "Loading Ahava Candles";
-    Object.assign(img.style, {
-      maxWidth: "160px",
-      maxHeight: "160px",
-      display: "block"
-    });
-
-    const text = document.createElement("div");
-    text.textContent = "Preparing your signature candles...";
-    Object.assign(text.style, {
-      fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-      fontSize: "0.9rem",
-      letterSpacing: "0.08em",
-      textTransform: "uppercase",
-      color: "#555",
-      textAlign: "center"
-    });
-
-    box.appendChild(img);
-    box.appendChild(text);
-    preloader.appendChild(box);
-    document.body.appendChild(preloader);
-
-    this.preloader = preloader;
-    this.startTimer();
-  },
-
-  startTimer() {
-    this.clearTimeouts();
-    this.timeouts.push(
-      setTimeout(() => this.hide(), this.DURATION)
-    );
-  },
-
-  hide() {
-    if (!this.preloader || this.isHidden) return;
-    this.isHidden = true;
-
-    this.preloader.style.opacity = "0";
-    this.timeouts.push(
-      setTimeout(() => {
-        if (this.preloader && this.preloader.parentNode) {
-          this.preloader.remove();
-        }
-        this.preloader = null;
-      }, 400)
-    );
-  },
-
-  clearTimeouts() {
-    this.timeouts.forEach(t => clearTimeout(t));
-    this.timeouts = [];
+  const img = preloader.querySelector("img");
+  if (img) {
+    img.style.maxWidth = "160px";
+    img.style.maxHeight = "160px";
+    img.style.display = "block";
   }
-};
 
-window.AhavaPreload = PreloadModule;
-PreloadModule.init();
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      if (preloader.parentNode) {
+        preloader.parentNode.removeChild(preloader);
+      }
+    }, 400);
+  }, 5000);
+}
 
 function init() {
+  setupPreloader();
   updateYear();
   wireProductCards();
   wireCartControls();
