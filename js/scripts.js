@@ -5,12 +5,12 @@ const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
 const state = {
   products: [
-    { id: 1, name: "Honey Lavender Bliss", price: 28.99, image: "./assets/images/candle1.png", scent: "Floral & Sweet" },
-    { id: 2, name: "Golden Vanilla Dream", price: 32.99, image: "./assets/images/candle2.png", scent: "Warm & Creamy" },
-    { id: 3, name: "Eucalyptus Mint Fresh", price: 26.99, image: "./assets/images/candle3.png", scent: "Fresh & Crisp" },
-    { id: 4, name: "Citrus Honey Burst", price: 29.99, image: "./assets/images/candle4.png", scent: "Bright & Citrusy" },
-    { id: 5, name: "Amber Rose Garden", price: 34.99, image: "./assets/images/candle5.png", scent: "Romantic & Elegant" },
-    { id: 6, name: "Ocean Breeze Serenity", price: 30.99, image: "./assets/images/candle6.png", scent: "Fresh & Aquatic" }
+    { id: 1, name: "Honey Lavender Bliss", price: 28.99, image: "/assets/images/candle1.png", scent: "Floral & Sweet" },
+    { id: 2, name: "Golden Vanilla Dream", price: 32.99, image: "/assets/images/candle2.png", scent: "Warm & Creamy" },
+    { id: 3, name: "Eucalyptus Mint Fresh", price: 26.99, image: "/assets/images/candle3.png", scent: "Fresh & Crisp" },
+    { id: 4, name: "Citrus Honey Burst", price: 29.99, image: "/assets/images/candle4.png", scent: "Bright & Citrusy" },
+    { id: 5, name: "Amber Rose Garden", price: 34.99, image: "/assets/images/candle5.png", scent: "Romantic & Elegant" },
+    { id: 6, name: "Ocean Breeze Serenity", price: 30.99, image: "/assets/images/candle6.png", scent: "Fresh & Aquatic" }
   ],
   cart: {}
 };
@@ -220,27 +220,18 @@ function wireNav() {
   if (heroCta) heroCta.addEventListener("click", () => scrollToHash("#products"));
 }
 
-/* PRELOADER CONTROL */
-const PRELOADER_KEY = "ahavaPreloaderShown";
-
+/* PRELOADER - usando rgb(240 240 240) */
 function setupPreloader() {
-  // Se já mostrei o preloader nesta aba, não mostra de novo
-  try {
-    if (sessionStorage.getItem(PRELOADER_KEY) === "1") {
-      return;
-    }
-    sessionStorage.setItem(PRELOADER_KEY, "1");
-  } catch (e) {
-    // se der erro em sessionStorage, só segue com preloader normal
-  }
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
 
-  const preloader = document.createElement("div");
-  preloader.id = "preloader";
+  // Mantém fundo do body igual ao loader
+  document.body.style.background = "rgb(240 240 240)";
 
   Object.assign(preloader.style, {
     position: "fixed",
     inset: "0",
-    background: "rgb(240, 240, 240)",
+    background: "rgb(240 240 240)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -249,18 +240,19 @@ function setupPreloader() {
     transition: "opacity 0.4s ease"
   });
 
-  const img = document.createElement("img");
-  img.src = "./assets/images/preload.gif";
-  img.alt = "Loading...";
-  img.style.maxWidth = "160px";
-  img.style.maxHeight = "160px";
-
-  preloader.appendChild(img);
-  document.body.appendChild(preloader);
+  const img = preloader.querySelector("img");
+  if (img) {
+    img.style.maxWidth = "160px";
+    img.style.maxHeight = "160px";
+    img.style.display = "block";
+  }
 
   setTimeout(() => {
     preloader.style.opacity = "0";
-    setTimeout(() => preloader.remove(), 400);
+    setTimeout(() => {
+      preloader.remove();
+      document.body.style.background = ""; // volta normal
+    }, 400);
   }, 5000);
 }
 
