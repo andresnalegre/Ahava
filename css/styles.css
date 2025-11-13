@@ -533,6 +533,17 @@ body {
     justify-items: center;
   }
 
+  .mobile-nav-list {
+      margin-top: 0;
+      margin-left: 0px;
+      background: rgb(240, 240, 240);
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem 1.25rem;
+      max-height: calc(100vh - 5rem);
+      overflow-y: auto;
+      justify-items: center;
+  }
+
   .mobile-nav-link {
     display: block;
     padding: 0.6rem 0;
